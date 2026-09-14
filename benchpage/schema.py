@@ -29,6 +29,9 @@ SOURCE_PLACEHOLDER = "placeholder"
 
 CATEGORY_LOCAL = "local"
 CATEGORY_CLOUD = "cloud"
+# Measured for reference (e.g. a speed floor), but not a document-parsing
+# product: pages render these outside the product rows.
+CATEGORY_BASELINE = "baseline"
 
 
 def summary_skeleton(run_id: str) -> dict:
@@ -111,7 +114,8 @@ def validate_summary(doc: dict) -> list[str]:
         for k in ("label", "category"):
             if not spec.get(k):
                 problems.append(f"pipelines.{pid}: missing {k}")
-        if spec.get("category") not in (CATEGORY_LOCAL, CATEGORY_CLOUD):
+        if spec.get("category") not in (CATEGORY_LOCAL, CATEGORY_CLOUD,
+                                        CATEGORY_BASELINE):
             problems.append(f"pipelines.{pid}: bad category {spec.get('category')!r}")
 
     for group, per_pipeline in doc["quality"].items():

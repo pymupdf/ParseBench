@@ -94,9 +94,12 @@ version in each run's summary.
 
 ## Roster notes
 
-The example config covers the PyMuPDF layout stack, the vanilla PyMuPDF
-text core as a speed reference, pypdf, MarkItDown, LiteParse, Docling, and
-LlamaParse Cost Effective as the one cloud reference.
+The example config covers PyMuPDF (the layout parsing stack, listed as
+the one PyMuPDF product row), the vanilla PyMuPDF text extraction as a
+speed baseline (`category: "baseline"` - measured and published, but
+rendered outside the product rows, since text extraction is not a
+document-parsing configuration), pypdf, MarkItDown, LiteParse, Docling,
+and LlamaParse Cost Effective as the one cloud reference.
 
 * **LiteParse.** Upstream's `liteparse` provider shells out to the `lit`
   CLI at `<repository parent>/target/release/lit` (the path of a Rust

@@ -4,7 +4,7 @@
   "pipelines": [
     {
       "id": "pymupdf4llm",
-      "label": "PyMuPDF · layout + HTML tables",
+      "label": "PyMuPDF",
       "category": "local",
       "parse_bench_pipeline": "pymupdf4llm_markdown",
       "python": ".venvs/pymupdf4llm/Scripts/python.exe",
@@ -23,8 +23,8 @@
     },
     {
       "id": "pymupdf_text",
-      "label": "PyMuPDF · text (core, no layout)",
-      "category": "local",
+      "label": "PyMuPDF text extraction (baseline)",
+      "category": "baseline",
       "parse_bench_pipeline": "pymupdf_text",
       "python": ".venvs/pymupdf4llm/Scripts/python.exe",
       "versions": {"pymupdf": "1.28.2"},

@@ -23,7 +23,7 @@
  },
  "pipelines": {
   "pymupdf4llm": {
-   "label": "PyMuPDF · layout + HTML tables",
+   "label": "PyMuPDF",
    "category": "local",
    "versions": {
     "pymupdf": "1.28.2",
@@ -34,8 +34,8 @@
    "lock_sha256": "e4c7cc9fb98a46eaabe560ef92574e68ea6ff4f5520d342fa72d6c1734ae75c0"
   },
   "pymupdf_text": {
-   "label": "PyMuPDF · text (core, no layout)",
-   "category": "local",
+   "label": "PyMuPDF text extraction (baseline)",
+   "category": "baseline",
    "versions": {
     "pymupdf": "1.28.2"
    },
