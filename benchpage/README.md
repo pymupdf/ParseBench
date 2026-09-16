@@ -119,7 +119,10 @@ and LlamaParse Cost Effective as the one cloud reference.
   published leaderboard shows the same 0.00.
 * **Warp Ingest** (`warp_ingest`) is pure Python (`warp-ingest[ocr]`,
   pdfplumber + pypdfium2 + rapidocr); upstream's pipeline config runs it
-  without OCR, and the cold-start expression mirrors that.
+  without OCR, and the cold-start expression mirrors that. It loads NLTK
+  resources at import time, so provisioning runs
+  `python -m nltk.downloader punkt_tab stopwords` in its venv once;
+  without them every document fails with an import-time error.
 * **OpenDataLoader** (`opendataloader_markdown`) is a Python wrapper around
   a Java CLI and needs Java 11+ on the runner (`default-jre-headless` on
   Ubuntu). The JRE is a system package, so it is not part of the measured
