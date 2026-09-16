@@ -117,6 +117,16 @@ and LlamaParse Cost Effective as the one cloud reference.
 * **pypdf** scores 0 on the tables group by design: its plain-text output
   carries no table structure, so the GTRM matcher finds no tables. The
   published leaderboard shows the same 0.00.
+* **Warp Ingest** (`warp_ingest`) is pure Python (`warp-ingest[ocr]`,
+  pdfplumber + pypdfium2 + rapidocr); upstream's pipeline config runs it
+  without OCR, and the cold-start expression mirrors that.
+* **OpenDataLoader** (`opendataloader_markdown`) is a Python wrapper around
+  a Java CLI and needs Java 11+ on the runner (`default-jre-headless` on
+  Ubuntu). The JRE is a system package, so it is not part of the measured
+  install footprint; the summary records the Java version instead.
+* **pdf-inspector** is deliberately not run: its provider shells out to a
+  Rust CLI (`cargo install pdf-inspector`), and the toolchain cost is not
+  worth a bottom-of-table row. It stays leaderboard-cited if shown at all.
 
 GPU/vLLM pipelines are cited from the published leaderboard, not re-run.
 

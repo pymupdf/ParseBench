@@ -82,6 +82,36 @@
       "footprint_packages": ["liteparse"]
     },
     {
+      "id": "warp_ingest",
+      "label": "Warp Ingest",
+      "category": "local",
+      "parse_bench_pipeline": "warp_ingest",
+      "python": ".venvs/warp/Scripts/python.exe",
+      "versions": {"warp-ingest": "2.1.0"},
+      "fee_per_1k_pages": null,
+      "coldstart": {
+        "import_stmt": "from warp_ingest.ingestor.markdown_exporter import parse_to_markdown_payload",
+        "first_doc_expr": "parse_to_markdown_payload(DOC, parse_options={'apply_ocr': False, 'render_format': 'all'})",
+        "doc": "data/test/docs/table/222876fb_page22.pdf"
+      },
+      "footprint_packages": ["warp-ingest[ocr]"]
+    },
+    {
+      "id": "opendataloader",
+      "label": "OpenDataLoader",
+      "category": "local",
+      "parse_bench_pipeline": "opendataloader_markdown",
+      "python": ".venvs/opendataloader/Scripts/python.exe",
+      "versions": {"opendataloader-pdf": "2.5.8", "java": "OpenJDK 17"},
+      "fee_per_1k_pages": null,
+      "coldstart": {
+        "import_stmt": "import opendataloader_pdf, tempfile",
+        "first_doc_expr": "opendataloader_pdf.convert(input_path=[DOC], output_dir=tempfile.mkdtemp(), format=['markdown'], table_method='cluster', image_output='off', quiet=True)",
+        "doc": "data/test/docs/table/222876fb_page22.pdf"
+      },
+      "footprint_packages": ["opendataloader-pdf"]
+    },
+    {
       "id": "llamaparse_ce",
       "label": "LlamaParse Cost Effective",
       "category": "cloud",
