@@ -85,12 +85,18 @@ leaderboard's "Docling-models" row was produced via the `docling_parse`
 pipeline against a hosted inference endpoint running Docling's VLM tier,
 a different mode from the standard pipeline measured here.
 
-Version note: on the same pinned instance, docling-slim 2.122.0 scores
-67.1 on the tables group where 2.124.0 scores 58.5 (both 503/503
-successful, standard pipeline via docling-serve 1.31.0) — a regression
-between those docling versions, not an artifact of this harness. We
-measure whatever the default install resolves and record the exact
-version in each run's summary.
+Reproducibility note: on the pinned instance the tables group scores 69.0
+for the measured docling 2.124.0 (503/503 successful, standard pipeline via
+docling-serve 1.31.0), reproducible across five fresh-server measurements,
+namely the two repetitions of the full run plus three standalone reruns,
+each restarting docling-serve before the pass. An earlier run reported 58.5;
+inspecting the raw outputs traced that to about three dozen large, complex
+pages (financial 10-Ks, large insurance filings, a vehicle sizing chart)
+for which that docling-serve process emitted text but no table structure,
+scoring zero, where every later run produces the full HTML table. It was a
+transient per-process failure in that run, not a version regression and not
+an artifact of this harness. We measure whatever the default install
+resolves and record the exact version in each run's summary.
 
 ## Roster notes
 
